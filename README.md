@@ -1,8 +1,20 @@
-# randomize-yelp
+# Yelp Randomizer
 
 **Author: Jesnine Erillo**
 
-Simple application playing with Yelp API that randomly selects a business given a search query.
+This application randomly selects a business given a search query.
+
+In the future, I plan on creating a simple UI and hosting this somewhere so I can share it with people and use it on the go.
+
+## Inspiration
+
+My friends and I always spend so much time just trying to decide on where to go, so this simplifies that thought process by choosing for us! :)
+
+## Running Locally
+
+1. Create a Yelp app to retrieve your API Key: [https://www.yelp.com/developers/v3/manage_app](https://www.yelp.com/developers/v3/manage_app)
+2. Enter your private API Keys into `secret.py.example` and rename the file to `secret.py`
+3. Run `python3 main.py`
 
 ## Preview
 
