@@ -51,7 +51,10 @@ def display_business(business):
 
 
 if __name__ == '__main__':
-    location = input('Enter a city: ')
+    location = input('Enter a location: ')
     term = input('What are you looking for? ')
+
+    print()
+
     business = get_random_business(location, term)
     display_business(business)
