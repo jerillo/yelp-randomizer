@@ -13,22 +13,23 @@ def jprint(obj):
     print(text)
 
 
-def get_random_restaurant(location):
+def get_random_business(location, term):
     search_url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'Bearer {}'.format(API_KEY)}
     params = {
-        'location': location
+        'location': location,
+        'term': term
     }
     response = requests.get(search_url, headers=headers, params=params)
-    restaurant = random.choice(response.json()['businesses'])
-    return restaurant
+    business = random.choice(response.json()['businesses'])
+    return business
 
 
-def display_restaurant(restaurant):
-    """Displays relevant information associated with restaurant.
+def display_business(business):
+    """Displays relevant information associated with business.
 
     Args:
-        restaurant (dict): Restaurant object returned from Yelp API search request.
+        business (dict): business object returned from Yelp API search request.
     """
     def table_print(title, item):
         print('{:15} {}'.format(title + ':', item))
@@ -36,20 +37,21 @@ def display_restaurant(restaurant):
     def meters_to_miles(meters):
         return meters / 1609
 
-    table_print('Name', restaurant['name'])
-    table_print('Phone', restaurant['phone'])
+    table_print('Name', business['name'])
+    table_print('Phone', business['phone'])
     table_print('Location',
-                ', '.join(x for x in restaurant['location']['display_address']))
-    table_print('Distance', '{:.2f} miles'.format(meters_to_miles(restaurant['distance'])))
-    table_print('Price', restaurant['price'])
-    table_print('Rating', restaurant['rating'])
-    table_print('Review Count', restaurant['review_count'])
-    table_print('URL', restaurant['url'])
+                ', '.join(x for x in business['location']['display_address']))
+    table_print('Distance', '{:.2f} miles'.format(meters_to_miles(business['distance'])))
+    table_print('Price', business['price'])
+    table_print('Rating', business['rating'])
+    table_print('Review Count', business['review_count'])
+    table_print('URL', business['url'])
     table_print('Categories',
-                ', '.join(str(x['title']) for x in restaurant['categories']))
+                ', '.join(str(x['title']) for x in business['categories']))
 
 
 if __name__ == '__main__':
     location = input('Enter a city: ')
-    restaurant = get_random_restaurant(location)
-    display_restaurant(restaurant)
+    term = input('What are you looking for? ')
+    business = get_random_business(location, term)
+    display_business(business)
