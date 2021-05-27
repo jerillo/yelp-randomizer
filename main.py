@@ -1,4 +1,5 @@
 from secret import CLIENT_ID, API_KEY
+from collections import defaultdict
 import requests
 import random
 import json
@@ -32,7 +33,7 @@ def display_business(business):
         business (dict): business object returned from Yelp API search request.
     """
     def table_print(title, item):
-        print('{:15} {}'.format(title + ':', item))
+        print('{:15} {}'.format(title + ':', item if item else 'Unknown'))
 
     def meters_to_miles(meters):
         return meters / 1609
@@ -56,5 +57,8 @@ if __name__ == '__main__':
 
     print()
 
-    business = get_random_business(location, term)
-    display_business(business)
+    try:
+        business = defaultdict(str, get_random_business(location, term))
+        display_business(business)
+    except IndexError:
+        print('No results found.')
