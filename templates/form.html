@@ -1,0 +1,20 @@
+<!-- <form action="{{ url_for('handle_data') }}" method="post">
+    <input type="text" name="city">
+    <input type="submit">
+</form>
+
+ -->
+<h1>Yelp Randomizer</h1>
+<div class="container">
+    <form action="{{ url_for('handle_data') }}" method="post">
+
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder='Your search location'>
+
+        <label for="term">Search Term</label>
+        <input type="text" id="term" name="term" placeholder='restaurants, golf, etc.'>
+
+        <input type="submit" value="Submit">
+
+    </form>
+</div>

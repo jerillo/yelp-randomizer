@@ -4,26 +4,36 @@ import requests
 import random
 import json
 
+from flask import Flask, render_template, request, redirect
 
-def jprint(obj):
-    """
-        Create a formatted string of the Python JSON object
-        Source: https://www.dataquest.io/blog/python-api-tutorial/
-    """
-    text = json.dumps(obj, sort_keys=True, indent=4)
-    print(text)
+app = Flask(__name__)
 
+@app.route("/")
+def main():
+    return render_template('form.html')
 
-def get_random_business(location, term):
+@app.route('/handle_data', methods=['POST'])
+def handle_data():
+    form = request.form.to_dict()
+    location = form['location']
+    print('Search form values: ', form)
+    res = get_random_business(form)
+    display_business(res)
+    return """
+    <a href="{}" target="_blank">{}</a>
+    <button onclick="location.href='/'" type="button">
+         Randomize again</button>
+    """.format(res['url'], res['name'])
+
+def get_random_business(params):
     search_url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'Bearer {}'.format(API_KEY)}
-    params = {
-        'location': location,
-        'term': term
-    }
     response = requests.get(search_url, headers=headers, params=params)
-    business = random.choice(response.json()['businesses'])
-    return business
+    try:
+        business = random.choice(response.json()['businesses'])
+    except:
+        return { 'name': 'No results found.' }
+    return defaultdict(str, business)
 
 
 def display_business(business):
@@ -37,6 +47,9 @@ def display_business(business):
 
     def meters_to_miles(meters):
         return meters / 1609
+
+    if type(business) is not defaultdict:
+        return
 
     table_print('Name', business['name'])
     table_print('Phone', business['phone'])
@@ -52,13 +65,14 @@ def display_business(business):
 
 
 if __name__ == '__main__':
-    location = input('Enter a location: ')
-    term = input('What are you looking for? ')
+    params = dict()
+    params['location'] = input('Enter a location: ')
+    params['term'] = input('What are you looking for? ')
 
     print()
 
     try:
-        business = defaultdict(str, get_random_business(location, term))
+        business = defaultdict(str, get_random_business(params))
         display_business(business)
     except IndexError:
         print('No results found.')

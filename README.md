@@ -2,22 +2,33 @@
 
 **Author: Jesnine Erillo**
 
-This application randomly selects a business given a search query.
-
-In the future, I plan on creating a simple UI and hosting this somewhere so I can share it with people and use it on the go.
+This application randomly selects a business given a search query using the Yelp Fusion API. There are two ways to run this program: with a command-line interface or as a web app. The web app version is built with Flask.
 
 ## Inspiration
 
-My friends and I always spend so much time just trying to decide on where to go, so this simplifies that thought process by choosing for us! :)
+My friends and I always spend so much time just trying to decide on where to go, so this simplifies that thought process by making a decision for us! :)
 
-## Running Locally
+## Running Locally 
 
 1. Create a Yelp app to retrieve your API Key: [https://www.yelp.com/developers/v3/manage_app](https://www.yelp.com/developers/v3/manage_app)
 2. Enter your private API Keys into `secret.py.example` and rename the file to `secret.py`
-3. Run `python3 main.py`
+3. You can run with either a command-line interface or as a simple Flask web app:
+    - **For CLI:** Run `python3 main.py`
+    - **For Web app:** Run `export FLASK_APP=main` then `flask run`
 
 ## Preview
+
+### CLI
 
 Here we can see that I entered "UC Berkeley" as my search location and specified that I was looking for "KBBQ". In the screenshot below, I ran the program twice with the same values so you can see that the output is randomized.
 
 ![preview](preview/berkeley-kbbq.png)
+
+### Web app interface
+
+The GUI is still a work in progress, so it's super simple at the moment, but I'm in the process of making it look prettier! Once that's done, I'm planning on hosting this super simple Flask app somewhere so I can use it on the go.
+
+As of right now, the results page just contains a hyperlink to the Yelp page for the randomly chosen business and a button to return to the search form.
+
+![web-form](preview/web-form.png)
+![web-result](preview/web-result.png)
