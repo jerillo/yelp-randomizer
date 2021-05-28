@@ -11,8 +11,8 @@ My friends and I always spend so much time just trying to decide on where to go,
 ## Running Locally
 
 1. Create a Yelp app to retrieve your API Key: [https://www.yelp.com/developers/v3/manage_app](https://www.yelp.com/developers/v3/manage_app)
-2. Enter your private API Keys into `secret.py.example` and rename the file to `secret.py`
-3. Run `export FLASK_APP=main` then `flask run`
+2. Enter your private API Keys into `.env.example` and rename the file to `.env`
+3. Run `python3 app.py`
 
 ## Preview
 

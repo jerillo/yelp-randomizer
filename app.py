@@ -1,9 +1,11 @@
-from secret import CLIENT_ID, API_KEY
 from collections import defaultdict
 import requests
 import random
 import json
 import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 from flask import Flask, render_template, request, redirect
 
@@ -34,7 +36,11 @@ def handle_data():
 
 def get_random_business(params):
     search_url = 'https://api.yelp.com/v3/businesses/search'
-    headers = {'Authorization': 'Bearer {}'.format(os.environ.get('API_KEY',API_KEY))}
+    API_KEY = os.environ.get('API_KEY')
+    if not API_KEY:
+        print("No API Key Provided")
+        return None
+    headers = {'Authorization': 'Bearer {}'.format(API_KEY)}
     response = requests.get(search_url, headers=headers, params=params)
     try:
         business = random.choice(response.json()['businesses'])
