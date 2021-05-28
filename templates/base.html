@@ -19,7 +19,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/stylesheets/style.css">
 
-    <title>Yelp Randomizer</title>
+    <title>Yelp Randomizer
+        {% if business %} 
+            - {{ business.name }}
+        {% endif %}
+    </title>
 </head>
 
 <body>
