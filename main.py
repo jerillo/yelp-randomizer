@@ -18,7 +18,6 @@ def main():
 @app.route('/get_random_business', methods=['POST'])
 def handle_data():
     form = request.form.to_dict()
-    location = form['location']
     print('Search form values: ', form)
     business = get_random_business(form)
     if business:
@@ -30,7 +29,7 @@ def handle_data():
         business['distance'] = '{:.2f} miles'.format(meters_to_miles(business['distance']))
         business['rating_img'] = 'regular_' + str(business['rating']).replace('.5', '_half').replace('.0', '') + '.png'
 
-    return render_template('result.html', business=business)
+    return render_template('result.html', business=business, location=form['location'], term=form['term'])
 
 def get_random_business(params):
     search_url = 'https://api.yelp.com/v3/businesses/search'

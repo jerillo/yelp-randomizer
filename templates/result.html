@@ -74,7 +74,7 @@
                     {% if business %}
                         <div class="row">
                             <div style="padding-top: 2em" class="col-sm-3">
-                                <a class="btn btn-outline-danger" href="{{ business.url }}" target="_blank"><i class="fab fa-yelp"></i> View on Yelp</a>
+                                <a class="btn btn-danger" href="{{ business.url }}" target="_blank"><i class="fab fa-yelp"></i> View on Yelp</a>
                             </div>
                         </div>
                     {% endif %}
@@ -82,7 +82,16 @@
             {% endif %}
         </div>
         <hr>
-        <a class="btn btn-outline-dark" href="javascript:history.back()" role="button">Go Back</a>
+        <div class="row">
+            <a class="btn btn-outline-dark" href="/" role="button" style="margin-right: 1em">
+                New Search
+            </a>
+            <form action="/get_random_business" method="POST" autocomplete="off">
+                <input type="hidden" id="location" name="location" value="{{ location }}">
+                <input type="hidden" id="term" name="term" value="{{ term }}">
+                <button class="btn btn-outline-danger">Randomize again <i class="fas fa-random"></i></button>
+            </form>
+        </div>
     </div>
 
     <!-- Javascript -->
