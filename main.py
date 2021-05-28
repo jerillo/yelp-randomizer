@@ -28,6 +28,7 @@ def handle_data():
         business['location'] = ',\n'.join(x for x in business['location']['display_address'])
         business['categories'] = ', '.join(str(x['title']) for x in business['categories'])
         business['distance'] = '{:.2f} miles'.format(meters_to_miles(business['distance']))
+        business['rating_img'] = 'regular_' + str(business['rating']).replace('.5', '_half').replace('.0', '') + '.png'
 
     return render_template('result.html', business=business)
 

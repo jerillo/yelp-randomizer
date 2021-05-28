@@ -46,7 +46,10 @@
                 <div class="col-sm-7">
                     <div class="row">
                         <div class="col-sm-3"><strong>Rating:</strong></div>
-                        <div class="col-sm-9"><i class="fa fa-star"></i>{{ business.rating }}, {{ business.review_count }} reviews</div>
+                        <div class="col-sm-9">
+                            <img class="figure-img img-fluid rounded" src="{{ url_for('static', filename=business.rating_img) }}" />  
+                            , {{ business.review_count }} reviews
+                        </div>
                     </div> 
                     <div class="row">
                         <div class="col-sm-3"><strong>Location:</strong></div>
@@ -71,16 +74,11 @@
                     {% if business %}
                         <div class="row">
                             <div style="padding-top: 2em" class="col-sm-3">
-                                <a class="btn btn-outline-danger" href="{{ business.url }}" target="_blank">View on Yelp</a>
+                                <a class="btn btn-outline-danger" href="{{ business.url }}" target="_blank"><i class="fab fa-yelp"></i> View on Yelp</a>
                             </div>
                         </div>
                     {% endif %}
                 </div>
-                
-                <!-- <p>Rating: {{ business.rating }}, {{ business.review_count }} reviews</p>
-                <p>Location: {{ business.location }}</p>
-                <p>Price: {{ business.price }}</p>
-                <p>Categories: {{ business.categories }}</p> -->
             {% endif %}
         </div>
         <hr>
