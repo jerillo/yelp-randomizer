@@ -18,13 +18,13 @@ My friends and I always spend so much time just trying to decide on where to go,
 
 ## Preview
 
+### Web app interface
+
+![web-form](preview/web-form.png)
+![web-result](preview/web-result.png)
+
 ### CLI
 
 Here we can see that I entered "UC Berkeley" as my search location and specified that I was looking for "KBBQ". In the screenshot below, I ran the program twice with the same values so you can see that the output is randomized.
 
 ![preview](preview/berkeley-kbbq.png)
-
-### Web app interface
-
-![web-form](preview/web-form.png)
-![web-result](preview/web-result.png)
