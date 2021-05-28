@@ -32,25 +32,21 @@
             </div>
         </div>
         <div class="row">
-            {% if business.image_url != None %} 
-            <div class="col-sm-5">
-                <div class="figure rounded">
-                        <div class="figure figure-index rounded mb-2">
-                            <img class="figure-img img-fluid rounded" src="{{ business.image_url }}" />  
-                        </div> 
-                    </div>
-                </div>
-            {% endif %}
-
             {% if business %}
+                {% if business.image_url != None %} 
+                <div class="col-sm-5">
+                    <div class="figure rounded">
+                            <div class="figure figure-index rounded mb-2">
+                                <img class="figure-img img-fluid rounded" src="{{ business.image_url }}" />  
+                            </div> 
+                        </div>
+                    </div>
+                {% endif %}
+
                 <div class="col-sm-7">
                     <div class="row">
                         <div class="col-sm-3"><strong>Rating:</strong></div>
-                        <div class="col-sm-9"><i class="fa fa-star"></i>{{ business.rating }}</div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-sm-3"><strong>Number of reviews:</strong></div>
-                        <div class="col-sm-9">{{ business.review_count }}</div>
+                        <div class="col-sm-9"><i class="fa fa-star"></i>{{ business.rating }}, {{ business.review_count }} reviews</div>
                     </div> 
                     <div class="row">
                         <div class="col-sm-3"><strong>Location:</strong></div>

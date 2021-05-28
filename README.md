@@ -26,9 +26,5 @@ Here we can see that I entered "UC Berkeley" as my search location and specified
 
 ### Web app interface
 
-The GUI is still a work in progress, so it's super simple at the moment, but I'm in the process of making it look prettier! Once that's done, I'm planning on hosting this super simple Flask app somewhere so I can use it on the go.
-
-As of right now, the results page just contains a hyperlink to the Yelp page for the randomly chosen business and a button to return to the search form.
-
 ![web-form](preview/web-form.png)
 ![web-result](preview/web-result.png)
