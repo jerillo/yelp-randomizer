@@ -20,8 +20,8 @@ My friends and I always spend so much time just trying to decide on where to go,
 
 ### Web app interface
 
-![web-form](preview/web-form.png)
-![web-result](preview/web-result.png)
+![web-home](preview/web-home.png)
+![web-search-result](preview/web-search-result.png)
 
 ### CLI
 
