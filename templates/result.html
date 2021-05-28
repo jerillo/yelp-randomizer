@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="row my-5 justify-content-center">
     <div class="title">
-        <h1 style="text-align: center;">{% if business %}{{ business.name }}{% else %}No results found.{% endif %}</h1>
+        <h1 style="text-align: center;">
+            {% if business %}
+                {{ business.name }}
+            {% else %}
+                No results found.
+            {% endif %}
+        </h1>
         <hr>
     </div>
 </div>
@@ -52,7 +59,7 @@
             </div> 
             {% if business %}
                 <div class="row">
-                    <div style="padding-top: 2em" class="col-sm-3">
+                    <div class="col-sm-3 pt-2">
                         <a class="btn btn-danger" href="{{ business.url }}" target="_blank"><i class="fab fa-yelp"></i> View on Yelp</a>
                     </div>
                 </div>
@@ -61,9 +68,9 @@
     {% endif %}
 </div>
 <hr>
-<div class="row">
-    <a class="btn btn-outline-dark" href="/" role="button" style="margin-right: 1em">
-        New Search
+<div class="row justify-content-center">
+    <a class="btn btn-outline-dark mr-1" href="/" role="button">
+        Home
     </a>
     <form action="/get_random_business" method="POST" autocomplete="off">
         <input type="hidden" id="location" name="location" value="{{ location }}">

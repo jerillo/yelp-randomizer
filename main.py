@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('form.html')
+    return render_template('form.html', nav_search=False)
 
 @app.route('/get_random_business', methods=['POST'])
 def handle_data():
@@ -29,7 +29,7 @@ def handle_data():
         business['distance'] = '{:.2f} miles'.format(meters_to_miles(business['distance']))
         business['rating_img'] = 'regular_' + str(business['rating']).replace('.5', '_half').replace('.0', '') + '.png'
 
-    return render_template('result.html', business=business, location=form['location'], term=form['term'])
+    return render_template('result.html', business=business, location=form['location'], term=form['term'], nav_search=True)
 
 def get_random_business(params):
     search_url = 'https://api.yelp.com/v3/businesses/search'

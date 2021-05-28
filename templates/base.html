@@ -24,6 +24,21 @@
 
 <body>
 
+    
+    <nav class="navbar navbar-light bg-danger justify-content-between">
+        <a class="navbar-brand text-white" href="/"><i class="fab fa-yelp"></i> Yelp Randomizer</a>
+       
+        <!-- Render search in navbar if not in home page -->
+        {% if nav_search %}
+            <form class="form-inline" action="/get_random_business" method="POST" autocomplete="off">
+                <input class="form-control mr-sm-2" type="text" id="term" name="term" placeholder="food, golf, tech..." value="{{ term }}">
+                <input class="form-control mr-sm-2" type="text" id="location" name="location" placeholder="NYC, 123 Main St..." value="{{ location }}">
+
+                <button class="btn btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        {% endif %}
+    </nav>
+
     <div class="container">
         {% block content %}
         {% endblock %}
