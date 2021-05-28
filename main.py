@@ -67,14 +67,4 @@ def display_business(business):
 
 
 if __name__ == '__main__':
-    params = dict()
-    params['location'] = input('Enter a location: ')
-    params['term'] = input('What are you looking for? ')
-
-    print()
-
-    try:
-        business = defaultdict(str, get_random_business(params))
-        display_business(business)
-    except IndexError:
-        print('No results found.')
+    app.run(debug=True)
