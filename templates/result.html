@@ -52,16 +52,20 @@
                         </div>
                     </div> 
                     <div class="row">
-                        <div class="col-sm-3"><strong>Location:</strong></div>
-                        <div class="col-sm-9">{{ business.location }}</div>
-                    </div> 
-                    <div class="row">
                         <div class="col-sm-3"><strong>Price:</strong></div>
                         <div class="col-sm-9">{{ business.price }}</div>
                     </div> 
                     <div class="row">
                         <div class="col-sm-3"><strong>Phone:</strong></div>
-                        <div class="col-sm-9">{{ business.phone }}</div>
+                        <div class="col-sm-9">
+                            <a href="tel:{{ business.phone }}" target="_blank">{{ business.display_phone }}</a>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-3"><strong>Location:</strong></div>
+                        <div class="col-sm-9">
+                            <a href="https://maps.google.com/?q={{ business.location }}" target="_blank">{{ business.location }}</a>
+                        </div>
                     </div> 
                     <div class="row">
                         <div class="col-sm-3"><strong>Distance:</strong></div>
