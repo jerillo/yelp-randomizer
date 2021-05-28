@@ -2,9 +2,11 @@
 
 **Author: Jesnine Erillo**
 
-Have you ever spent hours trying to figure out what restaurant you want to eat at?? Me too! This project was inspired by the continuous struggle of making a decision. My friends and I always spend so much time just trying to decide on where to go, so this simplifies that thought process by making a decision for us! :)
+Have you ever spent hours trying to figure out what restaurant you want to eat at? Me too!
 
-This application randomly selects a business given a search query using the Yelp Fusion API.
+My friends and I always spend so much time just trying to decide on where to go, so this simplifies that thought process by making a decision for us! :)
+
+This application randomly selects a business given a search query using the Yelp Fusion API and Flask.
 
 Deployed on Heroku! View [live website](https://yelp-randomizer.herokuapp.com/).
 
